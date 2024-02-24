@@ -75,7 +75,7 @@ describe('Swag Lab' , () => {
         await HomePage.open()
     })
 
-    //Cart Page
+    //add to Cart Page
     it('should product already add to cart, button add to cart change to remove, qty icon cart increases From Home Page', async () => {
         await HomePage.open()
         await CartPage.addToCartFromHome()
