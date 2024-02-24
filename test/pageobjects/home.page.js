@@ -11,6 +11,7 @@ class HomePage extends Page {
     get iconFilterZtoA() { return $('.product_sort_container option[value="za"]'); }
     get iconFilterAtoZ() { return $('.product_sort_container option[value="az"]'); }
     get idProduk() { return $('#item_4_title_link'); }
+    
 
     async validateHomePage() {
         expect(browser).toHaveUrlContaining('/inventory.html')

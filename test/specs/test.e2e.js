@@ -1,6 +1,7 @@
 const LoginPage = require('../pageobjects/login.page')
 const HomePage = require('../pageobjects/home.page')
 const DetailPage = require('../pageobjects/detail.page')
+const CartPage = require('../pageobjects/cart.page')
 
 describe('Swag Lab' , () => {
     //Login Page
@@ -75,6 +76,14 @@ describe('Swag Lab' , () => {
     })
 
     //Cart Page
-    
+    it('should product already add to cart, button add to cart change to remove, qty icon cart increases From Home Page', async () => {
+        await HomePage.open()
+        await CartPage.addToCartFromHome()
+    })
+
+    it('should product already add to cart, button add to cart change to remove, qty icon cart increases From Detail Page', async () => {
+        await DetailPage.validateDetailPage()
+        await CartPage.addToCartFromDetail()
+    })
 
 })
