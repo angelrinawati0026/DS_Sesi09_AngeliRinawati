@@ -1,4 +1,4 @@
-# Web Automation using Webdriverio
+# Web Automation using WebdriverIo
 
 ## Prerequisites
 
