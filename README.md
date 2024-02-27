@@ -15,3 +15,5 @@ Global NPM (npm install npm -g)
 ## HOW to Run
 npm run wdio
 
+## Report FILE
+![alt text](CapturewebAutomation.PNG)
