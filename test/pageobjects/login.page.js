@@ -8,7 +8,7 @@ class LoginPage extends Page {
     get buttonLogin () { return $('#login-button');}
     get errorLockedOutUser () {return $('//h3[text()="Epic sadface: Sorry, this user has been locked out."]')}
     get errorEmptyUser () {return $('//h3[text()="Epic sadface: Username is required."]')}
-    get errorInvalidPass () {return $('//h3[text()="Epic sadface: Username and password do not match any user in this service."]')}
+    get errorInvalidPass () {return $('//h3[text()="Epic sadface: Username and password do not match any user in this service"]')}
 
     async login (username,password) {
         await this.fieldUsername.waitForDisplayed({ timeout: 2500 });

@@ -1,7 +1,10 @@
 const LoginPage = require('../pageobjects/login.page')
 const HomePage = require('../pageobjects/home.page')
 const DetailPage = require('../pageobjects/detail.page')
+const AddCartPage = require('../pageobjects/addcart.page')
 const CartPage = require('../pageobjects/cart.page')
+const CheckoutPage = require('../pageobjects/checkout.page')
+const checkoutPage = require('../pageobjects/checkout.page')
 
 describe('Swag Lab' , () => {
     //Login Page
@@ -69,7 +72,7 @@ describe('Swag Lab' , () => {
         await DetailPage.validateDetailPage()
     })
 
-    it('should navigate to Home Page wen user click button back', async () => {
+    it('should navigate to Home Page when user click button back', async () => {
         await DetailPage.validateDetailPage()
         await DetailPage.buttonBack()
         await HomePage.open()
@@ -78,12 +81,45 @@ describe('Swag Lab' , () => {
     //add to Cart Page
     it('should product already add to cart, button add to cart change to remove, qty icon cart increases From Home Page', async () => {
         await HomePage.open()
-        await CartPage.addToCartFromHome()
+        await AddCartPage.addToCartFromHome()
     })
 
     it('should product already add to cart, button add to cart change to remove, qty icon cart increases From Detail Page', async () => {
         await DetailPage.validateDetailPage()
-        await CartPage.addToCartFromDetail()
+        await AddCartPage.addToCartFromDetail()
+    })
+
+    //cart page
+    it('should navigate to cart page and show all product that have been added before ', async () => {
+        await HomePage.validateHomePage()
+        await CartPage.cartPageFromHome()
+    })
+
+    it('should navigate to cart page and show all product that have been added before ', async () => {
+        await HomePage.validateHomePage()
+        await DetailPage.validateDetailPage()
+        await CartPage.cartPageFromHome()
+    })
+
+    it('should remove product that have been added before ', async () => {
+        await CartPage.removecartPage()
+    })
+
+    it('should navigate to homepage and user can add more product', async () => {
+        await CartPage.addProductToCart()
+        await AddCartPage.addMoreToCartFromHome()
+        await CartPage.cartPageFromHome()
+    })
+
+    //checkoutpage
+    it('should navigate to personal information checkout page', async () => {
+        await CheckoutPage.checkoutStepOne()
+        await CheckoutPage.open()
+    })
+
+    it('should fill personal information credentials', async () => {
+        //await CheckoutPage.open()
+        await CheckoutPage.fillDataInformation(process.env.FIRST_NAME, process.env.LAST_NAME,process.env.POSTAL_CODE)
     })
 
 })
